@@ -5,6 +5,7 @@
 . initapp/java.sh
 . initapp/maven.sh
 echo '开始安装'
+# 传递参数
 java8_22_1 'hello' 'world'
 echo  '----------------------------------------------------------------'
 maven3_6
