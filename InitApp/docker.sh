@@ -2,6 +2,7 @@
 #-------------------------------------------------#
 # 脚本主要功能说明:
 #-------------------------------------------------#
-echo '开始安装'
-
-echo '安装结束'
+function docker {
+  echo 'docker installing being'
+  echo 'docker installing end'
+}
