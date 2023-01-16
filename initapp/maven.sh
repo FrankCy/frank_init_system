@@ -10,7 +10,7 @@ MAVEN_3_6_URL=https://github.com/apache/maven/archive/refs/tags/maven-3.6.3.tar.
 # 安装目录
 INSTALL_PATH=/data/server
 function maven3_6 {
-  echo_info 'maven 3.6 installing being'
+  print_info 'maven 3.6 installing begin'
   # 下载maven到/tmp下
   wget $MAVEN_3_6_URL -P /tmp;
   # 解压到指定目录（/data/server）
@@ -27,5 +27,5 @@ function maven3_6 {
   source /etc/profile.d/maven.sh;
   # 检查mvn安装情况
   mvn -version;
-  echo_info 'maven 3.6 installing end'
+  print_info 'maven 3.6 installing end'
 }

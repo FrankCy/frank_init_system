@@ -5,7 +5,7 @@
 # 安装
 # https://www.myfreax.com/how-to-install-jenkins-on-ubuntu-20-04/
 function install_jenkins {
-  echo 'jenkins installing being'
+  echo 'jenkins installing begin'
   sudo apt update;
   sudo apt install openjdk-11-jdk;
   wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -;
@@ -18,6 +18,6 @@ function install_jenkins {
 
 # 卸载
 function uninstall_jenkins {
-  echo 'jenkins uninstall being'
+  echo 'jenkins uninstall begin'
   echo 'jenkins uninstall end'
 }

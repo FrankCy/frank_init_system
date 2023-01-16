@@ -5,8 +5,8 @@
 . common/common.sh
 . initapp/java.sh
 . initapp/maven.sh
-echo_info '开始安装'
+print_info '开始安装'
 # 传递参数
-echo_info  '----------------------------------------------------------------'
+print_info  '----------------------------------------------------------------'
 maven3_6
-echo_info '安装结束'
+print_info '安装结束'

@@ -6,6 +6,6 @@ currentTime=`date +%Y-%m-%d-%H-%M-%S`
 FrankShell='[Frank Shell]'
 
 # 绿色输出（正确）
-echo_info() {
+print_info() {
   echo "\033[30;32mINFO:\033[0m $FrankShell$currentTime $1"
 }

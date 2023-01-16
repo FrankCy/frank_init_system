@@ -7,7 +7,7 @@
 #-------------------------------------------------#
 . ./common/common.sh
 function apollo1.4 {
-  echo_info 'apollo 1.4 installing being'
+  print_info 'apollo 1.4 installing begin'
   CONFIG_URL=http://apollo-config-1.4.tar.gz
   ADMIN_URL=http://apollo-admin-1.4.tar.gz
   PORTAL_URL=http://apollo-portal-1.4.0%202.zip
@@ -31,83 +31,83 @@ function apollo1.4 {
   if [ ! -d "$DATA_SERVER_PATH" ]; then
     mkdir $DATA_SERVER_PATH
   else
-    echo_info '文件夹已存在'
-    echo_info '进入文件夹'
+    print_info '文件夹已存在'
+    print_info '进入文件夹'
     cd $DATA_SERVER_PATH
   fi
   # -----------------------------------------------Apollo Config----------------------------------------------------------------
-  echo_info '开始下载ApolloConfig'
+  print_info '开始下载ApolloConfig'
   wget -O apollo-configservice.tar.gz $CONFIG_URL
-  echo_info '结束下载ApolloConfig'
+  print_info '结束下载ApolloConfig'
 
-  echo_info '开始解压ApolloConfig'
+  print_info '开始解压ApolloConfig'
   mkdir ./apollo-configservice && tar -xzvf apollo-configservice.tar.gz -C ./apollo-configservice --strip-components 1
-  echo_info '结束解压ApolloConfig'
+  print_info '结束解压ApolloConfig'
 
-  echo_info '开始修改ApolloConfig config'
+  print_info '开始修改ApolloConfig config'
   apolloConfigConfigPath=$DATA_SERVER_PATH'apollo-configservice/config/application-github.properties'
   sed -i -e "s#^spring.datasource.url=.*#spring.datasource.url=${MYSQL_CONFIG_URL}#g" ${apolloConfigConfigPath}
   sed -i -e "s#^spring.datasource.username=.*#spring.datasource.username=${MYSQL_USER}#g" ${apolloConfigConfigPath}
   sed -i -e "s#^spring.datasource.password=.*#spring.datasource.password=${MYSQL_PASSWORD}#g" ${apolloConfigConfigPath}
-  echo_info '结束修改ApolloConfig config'
+  print_info '结束修改ApolloConfig config'
 
-  echo_info '---------------- ApolloConfig config ----------------'
+  print_info '---------------- ApolloConfig config ----------------'
   cat ${apolloConfigConfigPath}
-  echo_info '---------------- ApolloConfig config ----------------'
+  print_info '---------------- ApolloConfig config ----------------'
 
-  echo_info '开始启动ApolloConfig'
+  print_info '开始启动ApolloConfig'
   sh ./apollo-configservice/scripts/startup.sh > config_start.log 2>&1
-  echo_info '结束启动ApolloConfig'
+  print_info '结束启动ApolloConfig'
 
   # -----------------------------------------------Apollo Admin----------------------------------------------------------------
 
   cd $DATA_SERVER_PATH
-  echo_info '开始下载ApolloAdmin'
+  print_info '开始下载ApolloAdmin'
   wget -O apollo-adminservice.tar.gz $ADMIN_URL
-  echo_info '结束下载ApolloAdmin'
+  print_info '结束下载ApolloAdmin'
 
-  echo_info '开始解压ApolloAdmin'
+  print_info '开始解压ApolloAdmin'
   mkdir ./apollo-adminservice && tar -xzvf apollo-adminservice.tar.gz -C ./apollo-adminservice --strip-components 1
-  echo_info '结束解压ApolloAdmin'
+  print_info '结束解压ApolloAdmin'
 
-  echo_info '开始修改ApolloAdmin Config'
+  print_info '开始修改ApolloAdmin Config'
   apolloAdminConfigPath=$DATA_SERVER_PATH'apollo-adminservice/config/application-github.properties'
   sed -i -e "s#^spring.datasource.url=.*#spring.datasource.url=${MYSQL_CONFIG_URL}#g" ${apolloAdminConfigPath}
   sed -i -e "s#^spring.datasource.username=.*#spring.datasource.username=${MYSQL_USER}#g" ${apolloAdminConfigPath}
   sed -i -e "s#^spring.datasource.password=.*#spring.datasource.password=${MYSQL_PASSWORD}#g" ${apolloAdminConfigPath}
-  echo_info '结束修改ApolloAdmin Config'
+  print_info '结束修改ApolloAdmin Config'
 
-  echo_info '---------------- ApolloAdmin config ----------------'
+  print_info '---------------- ApolloAdmin config ----------------'
   cat ${apolloAdminConfigPath}
-  echo_info '---------------- ApolloAdmin config ----------------'
+  print_info '---------------- ApolloAdmin config ----------------'
 
-  echo_info '开始启动ApolloAdmin'
+  print_info '开始启动ApolloAdmin'
   sh ./apollo-adminservice/scripts/startup.sh > admin_start.log 2>&1
-  echo_info '结束启动ApolloAdmin'
+  print_info '结束启动ApolloAdmin'
 
   # -----------------------------------------------Apollo Portal----------------------------------------------------------------
 
   cd $DATA_SERVER_PATH
-  echo_info '开始下载ApolloPortal'
+  print_info '开始下载ApolloPortal'
   wget $PORTAL_URL
-  echo_info '结束下载ApolloPortal'
+  print_info '结束下载ApolloPortal'
 
-  echo_info '开始解压ApolloPortal'
+  print_info '开始解压ApolloPortal'
   unzip apollo-portal-1.4.0\ 2.zip && mv `unzip -l apollo-portal-1.4.0\ 2.zip | awk '{if(NR == 4){ print $4}}'` apollo-portal
-  echo_info '结束解压ApolloPortal'
+  print_info '结束解压ApolloPortal'
 
-  echo_info '开始修改ApolloPortal Config'
+  print_info '开始修改ApolloPortal Config'
   apolloPortalConfigPath=$DATA_SERVER_PATH'apollo-portal/config/application-github.properties'
   sed -i -e "s#^spring.datasource.url=.*#spring.datasource.url=${MYSQL_PORTAL_URL}#g" ${apolloPortalConfigPath}
   sed -i -e "s#^spring.datasource.username=.*#spring.datasource.username=${MYSQL_USER}#g" ${apolloPortalConfigPath}
   sed -i -e "s#^spring.datasource.password=.*#spring.datasource.password=${MYSQL_PASSWORD}#g" ${apolloPortalConfigPath}
-  echo_info '结束修改ApolloPortal Config'
+  print_info '结束修改ApolloPortal Config'
 
-  echo_info '---------------- ApolloPortal config ----------------'
+  print_info '---------------- ApolloPortal config ----------------'
   cat ${apolloPortalConfigPath}
-  echo_info '---------------- ApolloPortal config ----------------'
+  print_info '---------------- ApolloPortal config ----------------'
 
-  echo_info '开始修改ApolloPortal Meta Service'
+  print_info '开始修改ApolloPortal Meta Service'
   apolloPortalMetaPath=$DATA_SERVER_PATH'apollo-portal/config/apollo-env.properties'
   sed -i -e "s#^local.meta=.*#local.meta=${METAL_LOCAL}#g" ${apolloPortalMetaPath}
   sed -i -e "s#^dev.meta=.*#dev.meta=${META_DEV}#g" ${apolloPortalMetaPath}
@@ -115,24 +115,24 @@ function apollo1.4 {
   sed -i -e "s#^uat.meta=.*#uat.meta=${META_UAT}#g" ${apolloPortalMetaPath}
   sed -i -e "s#^lpt.meta=.*#lpt.meta=${METAL_LOCAL}#g" ${apolloPortalMetaPath}
   sed -i -e "s#^pro.meta=.*#pro.meta=${META_PRO}#g" ${apolloPortalMetaPath}
-  echo_info '结束修改ApolloPortal Meta Service'
+  print_info '结束修改ApolloPortal Meta Service'
 
-  echo_info '---------------- ApolloPortal Meta Service ----------------'
+  print_info '---------------- ApolloPortal Meta Service ----------------'
   cat ${apolloPortalMetaPath}
-  echo_info '---------------- ApolloPortal Meta Service ----------------'
+  print_info '---------------- ApolloPortal Meta Service ----------------'
 
-  echo_info '开始启动ApolloPortal'
+  print_info '开始启动ApolloPortal'
   sh ./apollo-portal/scripts/startup.sh > portal_start.log 2>&1
-  echo_info '结束启动ApolloPortal'
-  echo_info 'apollo 1.4 installing end'
+  print_info '结束启动ApolloPortal'
+  print_info 'apollo 1.4 installing end'
 }
 
 function apollo1.6 {
-  echo_info 'apollo 1.6 installing being'
-  echo_info 'apollo 1.6 installing end'
+  print_info 'apollo 1.6 installing begin'
+  print_info 'apollo 1.6 installing end'
 }
 
 function apollo2.0 {
-  echo_info 'apollo 2.0 installing being'
-  echo_info 'apollo 2.0 installing end'
+  print_info 'apollo 2.0 installing begin'
+  print_info 'apollo 2.0 installing end'
 }
