@@ -19,24 +19,24 @@
 #systemctl restart docker
 #-------------------------------------------------#
 . ./common/common.sh
-# 安装docker
+# 安装docker（已验证 ubuntu20.04.4）
 function install_docker {
   print_info 'docker installing begin';
   # 更新软件包索引
   apt update;
   apt upgrade -y;
-  apt install curl vim wget gnupg dpkg apt-transport-https lsb-release ca-certificates
+  apt install curl vim wget gnupg dpkg apt-transport-https lsb-release ca-certificates -y;
   apt-get remove docker docker.io containerd runc -y;
   # 导入docker仓库的GPG密钥并安装docker运行命令
-  curl -sS https://download.docker.com/linux/debian/gpg | gpg --dearmor > /usr/share/keyrings/docker-ce.gpg
+  curl -sS https://download.docker.com/linux/debian/gpg | gpg --dearmor > /usr/share/keyrings/docker-ce.gpg;
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-ce.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu $(lsb_release -sc) stable" > /etc/apt/sources.list.d/docker.list
   # 然后更新系统后即可安装 Docker CE：
-  apt update
-  apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+  apt update;
+  apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y;
   # 查看docker状态
   systemctl status docker;
   # 查看docker版本信息
-  docker version
+  docker version;
   print_info 'docker installing end';
 }
 

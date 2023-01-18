@@ -1,17 +1,23 @@
 #!/bin/bash
 #-------------------------------------------------#
 # 脚本主要功能说明: jdk安装
+# 查找历史版本：http://www.oracle.com/technetwork/java/javase/archive-139210.html
+# 登陆后下载，复制链接到下面脚本
 #-------------------------------------------------#
+#（已验证 ubuntu20.04.4）
 . ./common/common.sh
 function install_java8_22_1 {
   print_info 'java8_22_1 installing begin'
   cd /usr/local;
-  wget '找个1.8.0_221版本的jdk';
-  tar -zxvf jdk1.8.0_221.tar.gz;
+  # -O重命名
+  wget '找个1.8.0_221版本的jdk' -O jdk1.8.0_221.tar.gz;
+#  tar -zxvf jdk1.8.0_221.tar.gz;
   echo 'export JAVA_HOME=/usr/local/jdk1.8.0_221
-  export PATH=$JAVA_HOME/bin:$PATH
-  export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar' >> /etc/profile;
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar' >> /etc/profile;
   source /etc/profile;
+  # 查看版本
+  java -version;
   print_info 'java8_22_1 installing end'
 }
 
