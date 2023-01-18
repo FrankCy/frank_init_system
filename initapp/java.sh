@@ -2,6 +2,7 @@
 #-------------------------------------------------#
 # 脚本主要功能说明: jdk安装
 #-------------------------------------------------#
+. ./common/common.sh
 function install_java8_22_1 {
   print_info 'java8_22_1 installing begin'
   cd /usr/local;

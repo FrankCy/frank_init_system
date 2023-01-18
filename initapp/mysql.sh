@@ -1,19 +1,20 @@
 #!/bin/bash
 #-------------------------------------------------#
-# 脚本主要功能说明:
+# 脚本主要功能说明: jdk安装
 #-------------------------------------------------#
+. ./common/common.sh
 function mysql5.7 {
-  echo 'mysql5.7 installing begin'
-  echo 'mysql5.7 installing end'
+  print_info 'mysql5.7 installing begin'
+  print_info 'mysql5.7 installing end'
 }
 
 function mysql8 {
-  echo 'mysql8 installing begin'
-  echo 'mysql8 installing end'
+  print_info 'mysql8 installing begin'
+  print_info 'mysql8 installing end'
 }
 
 function mysql_client {
-  echo 'mysql_client installing begin'
-  echo 'mysql_client installing end'
+  print_info 'mysql_client installing begin'
+  print_info 'mysql_client installing end'
 }
 
