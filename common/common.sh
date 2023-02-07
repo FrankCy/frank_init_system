@@ -9,3 +9,12 @@ FrankShell='[Frank Shell]'
 print_info() {
   echo "\033[30;32mINFO:\033[0m $FrankShell$currentTime $1"
 }
+
+# 批量创建文件
+touch_files_by_array() {
+  array = $1
+  for var in ${array[@]};
+  do
+    touch $2/$var
+  done
+}
