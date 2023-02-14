@@ -4,6 +4,12 @@
 #-------------------------------------------------#
 . ./common/common.sh
 
+function native_install {
+  print_info "native install redis begin"
+
+  print_info "native install redis end"
+}
+
 function docker_install_redis {
   print_info "docker install redis begin"
 
