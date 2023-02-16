@@ -6,12 +6,14 @@
 #-------------------------------------------------#
 #（已验证 ubuntu20.04.4）
 . ./common/common.sh
+
 function install_java8_22_1 {
+  jdk_url = https://download.oracle.com/otn/java/jdk/8u351-b10/10e8cce67c7843478f41411b7003171c/jdk-8u351-linux-aarch64.tar.gz?AuthParam=1676442691_e191153a898f1a78df10da52b883fcc3
   print_info 'java8_22_1 installing begin'
   cd /usr/local;
   # -O重命名
-  wget '找个1.8.0_221版本的jdk' -O jdk1.8.0_221.tar.gz;
-#  tar -zxvf jdk1.8.0_221.tar.gz;
+  wget $jdk_url -O jdk1.8.0_221.tar.gz;
+  tar -zxvf jdk1.8.0_221.tar.gz;
   echo 'export JAVA_HOME=/usr/local/jdk1.8.0_221
 export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar' >> /etc/profile;
