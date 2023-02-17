@@ -6,9 +6,8 @@
 #-------------------------------------------------#
 #（已验证 ubuntu20.04.4）
 . ./common/common.sh
-
 function install_java8_22_1 {
-  jdk_url = https://download.oracle.com/otn/java/jdk/8u351-b10/10e8cce67c7843478f41411b7003171c/jdk-8u351-linux-aarch64.tar.gz?AuthParam=1676442691_e191153a898f1a78df10da52b883fcc3
+  jdk_url=https://download.oracle.com/otn/java/jdk/8u351-b10/10e8cce67c7843478f41411b7003171c/jdk-8u351-linux-aarch64.tar.gz?AuthParam=1676442691_e191153a898f1a78df10da52b883fcc3
   print_info 'java8_22_1 installing begin'
   cd /usr/local;
   # -O重命名
