@@ -24,9 +24,19 @@ function install {
   cd nginx;
   ./configure;
   make & make install;
-  echo 'export NGINX_HOME=/usr/local/nginx
+  echo 'export NGINX_HOME= /usr/local/nginx
 export PATH=$PATH:$NGINX_HOME/sbin' >> /etc/profile;
-  source /etc/profile
+  source /etc/profile;
+  # 启动
+  /usr/local/nginx/sbin/nginx;
+  # 查看版本
   nginx -V;
   print_info 'nginx installing begin';
 }
+###### 其它常用命令 #######
+# 验证nginx配置是否正确
+# nginx -t
+# 重新加载nginx，使其有效
+# nginx -s reload
+
+###### Nginx 配置文件详解 ######
