@@ -40,3 +40,33 @@ export PATH=$PATH:$NGINX_HOME/sbin' >> /etc/profile;
 # nginx -s reload
 
 ###### Nginx 配置文件详解 ######
+# https://www.runoob.com/w3cnote/nginx-setup-intro.html
+
+# /usr/local/nginx/conf/nginx.conf 初始配置简介如下：
+#...              #全局块
+#
+#events {         #events块
+#   ...
+#}
+#
+#http      #http块
+#{
+#    ...   #http全局块
+#    server        #server块
+#    {
+#        ...       #server全局块
+#        location [PATTERN]   #location块
+#        {
+#            ...
+#        }
+#        location [PATTERN]
+#        {
+#            ...
+#        }
+#    }
+#    server
+#    {
+#      ...
+#    }
+#    ...     #http全局块
+#}

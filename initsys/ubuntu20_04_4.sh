@@ -5,3 +5,7 @@
 # 2. 安全加固
 # 3. 网络设置
 #-------------------------------------------------#
+
+mkdir -p /data/server  /data/logs  /opt/data /opt/settings;
+chmod -R 777 /data/server  /data/logs  /opt/data /opt/settings;
+
