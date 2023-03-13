@@ -11,6 +11,8 @@
 # 创建目录 和 # 赋权限
 mkdir -p /data/server  /data/logs  /opt/data /opt/settings /opt/logs;
 chmod -R 777 /data/server  /data/logs  /opt/data /opt/settings /tmp;
+chown -R frank:frank /data/server /opt/data /opt/settings  /data/logs /opt/logs /tmp;
 chown -R worker:worker /data/server /opt/data /opt/settings  /data/logs /opt/logs /tmp;
+chown -R ubuntu:ubuntu /data/server /opt/data /opt/settings  /data/logs /opt/logs /tmp;
 
 

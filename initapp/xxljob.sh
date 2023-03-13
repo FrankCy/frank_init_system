@@ -43,6 +43,7 @@ function single {
   mvn clean package;
   # 启动
   nohup java -jar /data/server/xxl-job-2.3.0/xxl-job-admin/target/xxl-job-admin-2.3.0.jar > /data/server/xxl-job-start.log &
+  nohup java -jar /data/server/xxl-job-2.1.0/xxl-job-admin/target/xxl-job-admin-2.1.0.jar > /data/server/xxl-job-start.log &
   # 访问 http://192.168.163.149:8080/xxl-job-admin
   # 默认的用户名为：admin，密码为：123456
 }
